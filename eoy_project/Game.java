@@ -11,6 +11,7 @@ package eoy_project;
 		
 		private BufferedImage back; 
 		private int key; 
+		private Box runner;
 
 
 
@@ -84,26 +85,38 @@ package eoy_project;
 			// TODO Auto-generated method stub
 			
 			key= e.getKeyCode();
-			System.out.println(key);
-			
-			
-			
-		
-		}
+			if (key==37) {//Left
+				runner.setDX(-2);	
+			}
+			if (key==38) {//Down
+				runner.setDY(-2);	
+			}
+			if (key==39) {//Right
+				runner.setDX(2);	
+			}
+			if (key==40) {//Up
+				runner.setDY(2);		
+			}
+
+			}
+				
 
 
-		//DO NOT DELETE
-		@Override
-		public void keyReleased(KeyEvent e) {
-			
-			
-			
-			
-		}
-		
+
+			public void keyReleased(KeyEvent e) {
+			key=e.getKeyCode();
+			if (key==39 || key==37) {
+				runner.setDX(0);	
+			}
+			if (key==38 || key==40) {
+				runner.setDY(0);	
+			}
+			}
+			}
+
+
 		
 		
 
-		
-	}
+	
 
