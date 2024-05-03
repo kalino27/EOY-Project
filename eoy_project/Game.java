@@ -12,7 +12,7 @@ package eoy_project;
 		private BufferedImage back; 
 		private int key; 
 		private Box runner;
-
+		private Sound music;
 
 
 		
@@ -60,14 +60,65 @@ package eoy_project;
 			
 			g2d.drawString("key " + key, 340, 100);
 			
-		
+			g2d.setColor(Color.BLACK);
+			g2d.setFont(new Font("Highway Gothic",Font.BOLD,30));
+			
 			twoDgraph.drawImage(back, null, 0, 0);
 
 		}
 
 		
 
+		if(runner.collision()) {
+			g2d.setFont(new Font("Highway Gothic",Font.BOLD,50));
+			g2d.drawString("Level Complete!",200,300);
+		}
+			
+		if(runner.collision()) {
+			music=new Sound();
+			if(playsound) {
+				music.playmusic1("winner.wav");	
+				playsound=false;
+			}
+			
+			
+			
+			}
+		else
+		if(runner.collision()) {
+			music=new Sound();
+			if(playsound) {
+				music.playmusic2("death.wav");
+				playsound=false;
+			}
+			g2d.setFont(new Font("Highway Gothic",Font.BOLD,30));
+			g2d.drawString("GAME OVER",200,300);
+			
+		}
+		else
+		if(runner.collision()) {
+			music=new Sound();
+			if(playsound) {
+				music.playmusic2("death.wav");
+				playsound=false;
+			}
+			g2d.setFont(new Font("Highway Gothic",Font.BOLD,30));
+			g2d.drawString("GAME OVER",200,300);
+			
+		}
+		else
+		if(runner.collision()) {
+			music=new Sound();
+			if(playsound) {
+				music.playmusic2("death.wav");
+				playsound=false;
+			}
+			g2d.setFont(new Font("Highway Gothic",Font.BOLD,30));
+			g2d.drawString("GAME OVER",200,300);
+			
+		}
 
+			else {curtime=(System.currentTimeMillis()-time)/1000;}
 
 		//DO NOT DELETE
 		@Override
@@ -82,7 +133,6 @@ package eoy_project;
 	//DO NOT DELETE
 		@Override
 		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
 			
 			key= e.getKeyCode();
 			if (key==37) {//Left
